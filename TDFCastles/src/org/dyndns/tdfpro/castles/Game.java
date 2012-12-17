@@ -87,7 +87,7 @@ class GameThread extends Thread {
             game.postInvalidate();
             long delta = startTime - System.currentTimeMillis();
             try {
-                Thread.sleep(delay - delta);
+                Thread.sleep((long) Utils.clamp(delay - delta, 0, delay));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
